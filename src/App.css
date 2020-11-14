@@ -6,6 +6,12 @@
   height: 40vmin;
   pointer-events: none;
 }
+.cardItem{
+  width: 24%;
+  float: left;
+  margin-left: 5px;
+  margin-top: 5px;   
+}
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
