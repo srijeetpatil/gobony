@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/gobony/static/css/main.9381cf57.chunk.css",
-    "main.js": "/gobony/static/js/main.1ec4fae0.chunk.js",
-    "main.js.map": "/gobony/static/js/main.1ec4fae0.chunk.js.map",
+    "main.js": "/gobony/static/js/main.ba9ace00.chunk.js",
+    "main.js.map": "/gobony/static/js/main.ba9ace00.chunk.js.map",
     "runtime-main.js": "/gobony/static/js/runtime-main.9f5f7f11.js",
     "runtime-main.js.map": "/gobony/static/js/runtime-main.9f5f7f11.js.map",
     "static/css/2.a991ede9.chunk.css": "/gobony/static/css/2.a991ede9.chunk.css",
@@ -21,6 +21,6 @@
     "static/css/2.a991ede9.chunk.css",
     "static/js/2.01c726a0.chunk.js",
     "static/css/main.9381cf57.chunk.css",
-    "static/js/main.1ec4fae0.chunk.js"
+    "static/js/main.ba9ace00.chunk.js"
   ]
 }
