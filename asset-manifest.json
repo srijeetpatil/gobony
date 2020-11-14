@@ -1,26 +1,26 @@
 {
   "files": {
     "main.css": "/gobony/static/css/main.9381cf57.chunk.css",
-    "main.js": "/gobony/static/js/main.d3045919.chunk.js",
-    "main.js.map": "/gobony/static/js/main.d3045919.chunk.js.map",
+    "main.js": "/gobony/static/js/main.58e294ef.chunk.js",
+    "main.js.map": "/gobony/static/js/main.58e294ef.chunk.js.map",
     "runtime-main.js": "/gobony/static/js/runtime-main.9f5f7f11.js",
     "runtime-main.js.map": "/gobony/static/js/runtime-main.9f5f7f11.js.map",
     "static/css/2.a991ede9.chunk.css": "/gobony/static/css/2.a991ede9.chunk.css",
-    "static/js/2.01c726a0.chunk.js": "/gobony/static/js/2.01c726a0.chunk.js",
-    "static/js/2.01c726a0.chunk.js.map": "/gobony/static/js/2.01c726a0.chunk.js.map",
+    "static/js/2.491eb5dc.chunk.js": "/gobony/static/js/2.491eb5dc.chunk.js",
+    "static/js/2.491eb5dc.chunk.js.map": "/gobony/static/js/2.491eb5dc.chunk.js.map",
     "static/js/3.b82f1336.chunk.js": "/gobony/static/js/3.b82f1336.chunk.js",
     "static/js/3.b82f1336.chunk.js.map": "/gobony/static/js/3.b82f1336.chunk.js.map",
     "index.html": "/gobony/index.html",
     "static/css/2.a991ede9.chunk.css.map": "/gobony/static/css/2.a991ede9.chunk.css.map",
     "static/css/main.9381cf57.chunk.css.map": "/gobony/static/css/main.9381cf57.chunk.css.map",
-    "static/js/2.01c726a0.chunk.js.LICENSE.txt": "/gobony/static/js/2.01c726a0.chunk.js.LICENSE.txt",
+    "static/js/2.491eb5dc.chunk.js.LICENSE.txt": "/gobony/static/js/2.491eb5dc.chunk.js.LICENSE.txt",
     "static/media/font-awesome.css": "/gobony/static/media/fontawesome-webfont.f691f37e.woff"
   },
   "entrypoints": [
     "static/js/runtime-main.9f5f7f11.js",
     "static/css/2.a991ede9.chunk.css",
-    "static/js/2.01c726a0.chunk.js",
+    "static/js/2.491eb5dc.chunk.js",
     "static/css/main.9381cf57.chunk.css",
-    "static/js/main.d3045919.chunk.js"
+    "static/js/main.58e294ef.chunk.js"
   ]
 }
