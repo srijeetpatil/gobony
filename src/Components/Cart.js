@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import {Link} from 'react-router-dom';
+import {Link, Redirect} from 'react-router-dom';
 import firebase from 'firebase';
 import {Card, CardBody} from 'reactstrap';
 
@@ -27,14 +27,18 @@ function Cart(props){
             var arr = Object.values(data);
             return arr.map((item) => {
                 return(
-                    <div className="row">
-                        <img src={item.image} className="col-3"></img>
-                        <div>
+                    <div className="row" style={{marginTop:"10px", height:"100px", overflow:"hidden"}}>
+                        <img src={item.image} className="col-3" style={{objectFit:"contain"}}></img>
+                        <div className="col-8">
                             <p>{item.name} <div><Link onClick={() => {  
+                                    var empty = 0; 
                                     if(arr.length === 1){
-                                        alert("Try reloading the page");
+                                        empty = 1;
                                     }                                                                 
-                                    firebase.database().ref(props.user.uid + "/" + item.prod_id).remove();                                                                         
+                                    firebase.database().ref(props.user.uid + "/" + item.prod_id).remove();   
+                                    if(empty === 1){
+                                        window.location.href = "https://srijeetpatil.github.io/gobony/";
+                                    }                                                                      
                                 }}><i className="fa fa-trash ml-2"> Remove</i></Link></div></p>
                             <p style={{textAlign:"left",color:"#bb0b0b"}}>{item.price}</p>                            
                         </div>
@@ -53,7 +57,7 @@ function Cart(props){
 
     return(
         <div className="container">
-            <Link to="/Home">Back to home</Link>
+            <Link to="/gobony/">Back to home</Link>
             <Card>
                 <CardBody>
                     {cartItems()}

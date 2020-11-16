@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import {Card, CardBody, Badge, CardImg} from 'reactstrap';
+import {Link} from 'react-router-dom';
 import firebase from 'firebase';
 
 const database = axios.create({
@@ -54,9 +55,9 @@ function Home(props){
                             <div style={{textAlign: "center", color:"#bb0b0b"}}>
                                 <h6>{item.price}</h6>                                
                             </div>
-                            <a className="btn" onClick={() => {
+                            <Link onClick={() => {
                                 addToCart(item);
-                            }}><i className="fa fa-shopping-cart"> Add to cart</i></a>
+                            }}><i className="fa fa-shopping-cart"> Add to cart</i></Link>
                         </CardBody>                                                                      
                     </Card>                    
                 </div>

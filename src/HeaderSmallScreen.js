@@ -1,14 +1,16 @@
-import React, { useEffect, useState } from 'react';
-import {Button, Input, Modal, ModalHeader, ModalBody} from 'reactstrap';
+import React, { useState, useEffect } from 'react';
 import firebase from 'firebase';
+import {Button, Modal, ModalBody, ModalHeader, Input} from 'reactstrap';
 import {Link} from 'react-router-dom';
 
-function Header(){ 
-    const [email, changeEmail] = useState("");
-    const [password, changePassword] = useState("");    
-    const [isOpen, setModal] = useState(false);
-    const [userEmail, setUserEmail] = useState("");
+function HeaderSmallScreen(){
+
     const [photo, setUserPhoto] = useState("");
+    const [name, setUserEmail] = useState("");
+    const [logged, setLogged] = useState(false);
+    const [isOpen, setModal] = useState(false);
+    const [email, changeEmail] = useState("");
+    const [password, changePassword] = useState("");  
 
     var provider = new firebase.auth.GoogleAuthProvider();    
     var provider2 = new firebase.auth.FacebookAuthProvider();
@@ -19,7 +21,7 @@ function Header(){
 
     const handleEmailChange = (e) => {
         changeEmail(e.target.value);                      
-    }   
+    }
 
     const login = () => {
         var em = email.toString().trim();
@@ -115,9 +117,44 @@ function Header(){
         })
     }
 
+    var isUserLoggedIn = () => {        
+        if(logged == false){
+            return(
+                <div>
+                    <div>
+                        <Input placeholder="Email" style={{width:"40%", marginLeft:"10px"}} onChange={handleEmailChange}></Input>
+                        <Input placeholder="Password" style={{width:"40%", marginLeft:"10px"}} onChange={handlePasswordChange} type="password"></Input>
+                        <p className="text-danger" id="emailLoginError" style={{marginLeft:"10px", marginRight:"10px"}}></p>
+                    </div>  
+                    <Button color="primary" style={{marginLeft:"10px", marginTop:"5px"}} onClick={login}>Log in</Button>
+                    <Button color="info" style={{marginLeft:"10px", marginTop:"5px"}} onClick={toggle}>Sign in</Button> 
+                    <a className="btn btn-social-icon btn-google" onClick={googleLogin}> 
+                        <i className="fa fa-google fa-social" style={{marginLeft:"10px", marginTop:"auto", marginBottom:"auto"}}></i>
+                    </a>
+                    <a className="btn btn-social-icon btn-facebook" onClick={facebookLogin}> 
+                        <i className="fa fa-facebook-square" style={{marginTop:"auto", marginBottom:"auto"}}></i>
+                    </a>                                                           
+                </div>
+            );
+        }
+        else{
+            return(
+                <div style={{marginRight:"30px", userSelect:"none"}}>
+                    <div style={{marginLeft:"10px", marginTop:"auto", marginBottom:"auto"}}>
+                        {name}
+                    </div>                    
+                    <div className="row" style={{marginLeft:"10px", marginRight:"10px", overflow:"hidden", width:"100px", borderRadius:"50%"}}>                        
+                        <img src={photo}
+                        style={{height:"100%", width:"100%"}}></img>          
+                    </div>
+                    <Link to="/gobony/Cart" style={{marginLeft:"10px", marginTop:"5px"}}><i className="fa fa-shopping-cart"> Cart</i></Link>
+                    <Button color="danger" style={{marginLeft:"10px", marginTop:"5px"}} onClick={logout}>Log out</Button>
+                </div>
+            );
+        }
+    }
+
     const toggle = () => setModal(!isOpen);
-    
-    const [logged, setLogged] = useState(false);   
 
     useEffect(() => {
         firebase.auth().onAuthStateChanged(function(user) {
@@ -139,45 +176,8 @@ function Header(){
     }, []);
 
 
-    var isUserLoggedIn = () => {        
-        if(logged == false){
-            return(
-                <div>
-                    <div className="row" style={{marginLeft:"auto", marginRight:"30px"}}> 
-                        <input placeholder="Email" type="text" className="col-3" onChange={handleEmailChange}></input>
-                        <input placeholder="Password" className="col-3" style={{marginLeft:"10px"}} type="password" onChange={handlePasswordChange}></input>
-                        <Button color="primary" style={{marginLeft:"10px"}} onClick={login}>Log in</Button>
-                        <a className="btn btn-social-icon btn-google" onClick={googleLogin}> 
-                            <i className="fa fa-google fa-social" style={{marginLeft:"10px", marginTop:"auto", marginBottom:"auto"}}></i>
-                        </a>
-                        <a className="btn btn-social-icon btn-facebook" onClick={facebookLogin}> 
-                            <i className="fa fa-facebook-square" style={{marginTop:"auto", marginBottom:"auto"}}></i>
-                        </a>                    
-                        <Button color="info" style={{marginLeft:"10px"}} onClick={toggle}>Sign In</Button>                             
-                    </div>
-                    <p className="text-danger" id="emailLoginError"></p>
-                </div>
-            );
-        }
-        else{
-            return(
-                <div className="row" style={{marginRight:"30px", userSelect:"none"}}>
-                    <div style={{marginLeft:"10px", marginTop:"auto", marginBottom:"auto"}}>
-                        {userEmail}
-                    </div>                    
-                    <div className="row" style={{marginLeft:"10px", marginRight:"10px", overflow:"hidden", width:"40px", borderRadius:"50%"}}>                        
-                        <img src={photo}
-                        style={{height:"100%", width:"100%"}}></img>          
-                    </div>
-                    <Link to="/gobony/Cart" style={{marginLeft:"10px"}}><Button color="success">Cart</Button></Link>
-                    <Button color="danger" style={{marginLeft:"10px"}} onClick={logout}>Log out</Button>
-                </div>
-            );
-        }
-    }
-
     return(
-        <div>
+        <div style={{width: "100%"}}>
             <Modal isOpen={isOpen} toggle={toggle}>
                 <ModalHeader toggle={toggle}>Sign In</ModalHeader>
                 <ModalBody>
@@ -197,14 +197,10 @@ function Header(){
                     </div>
                 </ModalBody>
             </Modal>
-            <div style={{paddingTop:"10px", paddingBottom:"10px", width:"100vw", display:"flex"}}>
-                <div style={{marginLeft:"40%", width:"20%"}}>
-                    <h3 style={{textAlign:"center"}}><b>Go Bony</b></h3>
-                </div>  
-                {isUserLoggedIn()}                                          
-            </div>        
+            <h3 style={{marginLeft:"10px", marginTop:"10px"}}><b>Go bony</b></h3>  
+            {isUserLoggedIn()}          
         </div>
     );
-}   
+}
 
-export default Header;
+export default HeaderSmallScreen;

@@ -1,44 +1,154 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Alata&display=swap');
+.basic-font{
+    font-family: 'Alata', sans-serif;    
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.nav{    
+    background-color: #000000;  
+    margin: 0px auto;     
+}
+.search{
+    z-index: 1;
+    border-radius: 7px 7px 0px 0px;
+    overflow: auto;
+    width: 30%;          
+    border-style: solid;
+    border-width: 1px;
+    border-color: #c6c6c6;
+    outline: none;
+}
+.jumbotron{
+    margin: 0px auto;    
+    width: 100%;
+}
+.overlay{
+    width:100%;
+    z-index: 1;
+    position: absolute;
+}
+.carouselItem{
+    height: 150px;        
+    width:100%;
 }
 .cardItem{
-  width: 24%;
-  float: left;
-  margin-left: 5px;
-  margin-top: 5px;   
+    width: 24%;
+    float: left;
+    margin-left: 5px;
+    margin-top: 5px;   
+}
+.foot{
+    left:0;
+    bottom:0;
+    right:0;
+    position: static;
+}
+.resultImg{
+    max-height: 220px;
+    max-width: 100%;
+}
+.resultText{
+    max-height: 220px;
+    max-width: 100%;
+}
+.itemImage{
+    width: 50%;
+    display: block;
+    margin: auto;
+    object-fit: contain;
+}
+.loginBox{
+    width: 40%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.shadow {
+    -webkit-box-shadow: 3px 3px 5px 6px #ccc;  
+    -moz-box-shadow:    3px 3px 5px 6px #ccc;  
+    box-shadow:         3px 3px 5px 6px #ccc;  
+}
+
+@keyframes login{
+    0% {top: 0px; left: auto; right: auto;}
+    100%{top: 200px; left: auto; right: auto;}
+}
+.loginObject{
+    position: fixed;
+    background-color: black;
+    animation-name: login;
+    animation-duration: 500ms;
+    z-index: 10;
+    width: 30%;
+    border-radius: 10px;
+    margin-left: 35%;
+}
+div[disabled]{
+    pointer-events: none;
+}
+@media only screen 
+  and (min-device-width: 320px) 
+  and (max-device-width: 480px)
+  and (-webkit-min-device-pixel-ratio: 1) {    
+    .cardItem{
+        width:47%;
+        float: left;
+        margin-left:7px;
+        margin-top:7px;
+    }
+    .carouselItem{            
+        width: 100%;        
+    }
+    .carouselImage{
+        height: 300px;
+        width: 100%;        
+    }            
+    .resultImg{   
+        max-width: 100%;    
+    }
+    .resultText{        
+        max-width: 50%;
+    }
+    .resultAdjustment{
+        max-width: 33%;
+    }
+    .search{
+        z-index: 1;  
+        border-radius: 7px 7px 0px 0px;
+        overflow: auto;
+        width: 30%;
+        border-style: solid;
+        border-width: 1px;
+        border-color: #c6c6c6;
+        outline: none;    
+    }   
+    .similar{
+        height: 100px;
+        width: 20%;    
+    } 
+    .loginObject{
+        position: fixed;
+        background-color: black;
+        animation-name: login;
+        animation-duration: 1s;
+        z-index: 10;
+        width: 80%;
+        margin-left: 10%;
+    }
+    div[disabled]{
+        pointer-events: none;
+    }
+    .loginBox{
+        width: 80%;
+    }
+}
+@media only screen 
+  and (min-device-width: 700px) 
+  and (max-device-width: 1024px)
+  and (-webkit-min-device-pixel-ratio: 1){
+    .loginObject{
+        position: fixed;
+        background-color: black;
+        animation-name: login;
+        animation-duration: 1s;
+        z-index: 10;
+        width: 80%;
+        margin-left: 10%;
+    }
   }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}

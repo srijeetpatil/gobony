@@ -1,9 +1,10 @@
 import './App.css';
 import Header from './Components/Header';
 import firebase from 'firebase';
-import {Switch, Route} from 'react-router-dom';
+import {Switch, Route, Redirect} from 'react-router-dom';
 import Home from './Components/Home';
 import Cart from './Components/Cart';
+import HeaderSmallScreen from './HeaderSmallScreen';
 import { useState, useEffect } from 'react';
 
 const firebaseConfig = {
@@ -33,12 +34,25 @@ function App() {
       });
   }, []);
 
+  const header = () => {
+    if(window.innerWidth > 800){
+      return(
+        <Header/>
+      );
+    }
+    else{
+      return(
+        <HeaderSmallScreen/>
+      );
+    }
+  }
+
   return (
     <div className="App">
-        <Header/>             
+        {header()}             
         <Switch>
-            <Route path="/Home" component={() => <Home user={user}/>}/> 
-            <Route path="/Cart" component={() => <Cart user={user}/>} />
+            <Route exact path="/gobony/" component={() => <Home user={user}/>}/> 
+            <Route path="/gobony/Cart" component={() => <Cart user={user}/>}/>            
         </Switch>             
     </div>
   );
